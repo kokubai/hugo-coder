@@ -1,8 +1,8 @@
 on:
   push:
     # Sequence of patterns matched against refs/tags
-    tags:
-      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+    # tags:
+    #   - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 
 name: Create Release
 
@@ -16,7 +16,10 @@ jobs:
       - name: Build
         working-directory: ${{runner.workspace}}/hugo-coder
         shell: bash
-        run: zip -rq hugo-coder.zip . -x '*.git*'
+        run: |
+          pwd
+          ls -alF
+          zip -rq hugo-coder.zip . -x '*.git*' || exit 1
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
