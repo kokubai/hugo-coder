@@ -20,7 +20,7 @@ jobs:
           pwd
           ls -alF
           which zip
-          zip -vrq hugo-coder.zip . -x '*.git*' || exit 1
+          zip -r hugo-coder.zip . -x '*.git*' || exit 1
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
