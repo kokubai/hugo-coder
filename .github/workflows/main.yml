@@ -16,7 +16,7 @@ jobs:
       - name: Build
         working-directory: ${{runner.workspace}}
         shell: bash
-        run: zip -rq hugo-coder.zip . -x '*.git*'
+        run: zip -rq hugo-coder.zip hugo-coder -x '*.git*'
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
