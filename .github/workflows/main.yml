@@ -14,13 +14,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Build
-        working-directory: ${{runner.workspace}}/hugo-coder
+        working-directory: ${{runner.workspace}}
         shell: bash
         run: |
           pwd
           ls -alF
           which zip
-          zip -r hugo-coder.zip . -x '*.git*' || exit 1
+          zip -r hugo-coder.zip hugo-coder -x '*.git*' || exit 1
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
