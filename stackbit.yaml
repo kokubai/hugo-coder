@@ -150,6 +150,8 @@ models:
           - type: language_config
             name: en
           - type: language_config
+            name: ja
+          - type: language_config
             name: "pt-br"
       - type: object
         name: taxonomies
